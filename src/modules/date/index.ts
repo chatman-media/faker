@@ -723,8 +723,9 @@ export class DateModule extends SimpleDateModule {
     }
 
     const values = source[type];
-    assertLocaleData(values, 'date.month', type);
-    return this.faker.helpers.arrayElement(values);
+    return this.faker.helpers.arrayElement(
+      assertLocaleData(values, 'date.month', type)
+    );
   }
 
   /**
@@ -775,8 +776,9 @@ export class DateModule extends SimpleDateModule {
     }
 
     const values = source[type];
-    assertLocaleData(values, 'date.weekday', type);
-    return this.faker.helpers.arrayElement(values);
+    return this.faker.helpers.arrayElement(
+      assertLocaleData(values, 'date.weekday', type)
+    );
   }
 
   /**
