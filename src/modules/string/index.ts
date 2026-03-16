@@ -1,5 +1,6 @@
 import { SimpleModuleBase } from '../../internal/module-base';
 import type { LiteralUnion } from '../../internal/types';
+import type { Casing } from '../../utils/types';
 import type { AlphaChar, AlphaNumericChar, NumericChar } from './_types';
 import { alpha as stringAlpha } from './alpha';
 import { alphanumeric as stringAlphanumeric } from './alphanumeric';
@@ -14,12 +15,7 @@ import { symbol as stringSymbol } from './symbol';
 import { ulid as stringUlid } from './ulid';
 import { uuid as stringUuid } from './uuid';
 
-export type {
-  AlphaChar,
-  AlphaNumericChar,
-  Casing,
-  NumericChar,
-} from './_types';
+export type { AlphaChar, AlphaNumericChar, NumericChar } from './_types';
 
 /**
  * Module to generate string related entries.
