@@ -1,6 +1,7 @@
 import type { Faker, SimpleFaker } from '../..';
 import { FakerError } from '../../errors/faker-error';
 import { SimpleModuleBase } from '../../internal/module-base';
+import type { NumberRange } from '../../utils/types';
 import { fakeEval } from './eval';
 import { luhnCheckValue } from './luhn-check';
 
@@ -945,18 +946,7 @@ export class SimpleHelpersModule extends SimpleModuleBase {
    */
   arrayElements<const T>(
     array: ReadonlyArray<T>,
-    count?:
-      | number
-      | {
-          /**
-           * The minimum number of elements to pick.
-           */
-          min: number;
-          /**
-           * The maximum number of elements to pick.
-           */
-          max: number;
-        }
+    count?: number | NumberRange
   ): T[] {
     if (array.length === 0) {
       return [];
@@ -1035,20 +1025,7 @@ export class SimpleHelpersModule extends SimpleModuleBase {
    *
    * @since 8.0.0
    */
-  rangeToNumber(
-    numberOrRange:
-      | number
-      | {
-          /**
-           * The minimum value for the range.
-           */
-          min: number;
-          /**
-           * The maximum value for the range.
-           */
-          max: number;
-        }
-  ): number {
+  rangeToNumber(numberOrRange: number | NumberRange): number {
     if (typeof numberOrRange === 'number') {
       return numberOrRange;
     }
@@ -1081,18 +1058,7 @@ export class SimpleHelpersModule extends SimpleModuleBase {
        *
        * @default 3
        */
-      count?:
-        | number
-        | {
-            /**
-             * The minimum value for the range.
-             */
-            min: number;
-            /**
-             * The maximum value for the range.
-             */
-            max: number;
-          };
+      count?: number | NumberRange;
     } = {}
   ): TResult[] {
     const count = this.rangeToNumber(options.count ?? 3);

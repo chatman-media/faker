@@ -5,6 +5,7 @@
  * operations.
  */
 import { ModuleBase } from '../../internal/module-base';
+import type { NumberRange } from '../../utils/types';
 
 export enum Aircraft {
   Narrowbody = 'narrowbody',
@@ -246,18 +247,7 @@ export class AirlineModule extends ModuleBase {
        *
        * @default { min: 1, max: 4 }
        */
-      length?:
-        | number
-        | {
-            /**
-             * The minimum number of digits to generate.
-             */
-            min: number;
-            /**
-             * The maximum number of digits to generate.
-             */
-            max: number;
-          };
+      length?: number | NumberRange;
       /**
        * Whether to pad the flight number up to 4 digits with leading zeros.
        *
