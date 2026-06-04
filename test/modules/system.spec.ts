@@ -76,7 +76,6 @@ describe('system', () => {
             'jpg',
             'm1v',
             'm2a',
-            'm1v',
             'm2v',
             'm3a',
             'mp2',
